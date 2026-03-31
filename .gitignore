@@ -1,0 +1,18 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+
+#vvk
+.bak/
+.fig/
+.hlp/
+.review/
+.sh/ 
+.tmp/
+.postman/
