@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Sofia Sans Extra Condensed Regular';
+  src:
+    local('Sofia Sans Extra Condensed Regular'),
+    url('/fonts/SofiaSansExtraCondensed-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf') format('truetype');
+  font-weight: 1 1000;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src:
+    local('Oswald'),
+    url('/fonts/Oswald-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-display: swap;
+}

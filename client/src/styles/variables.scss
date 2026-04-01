@@ -1,0 +1,19 @@
+/* ПАЛИТРА ЦВЕТОВ (ШАБЛОНЫ ИЗ BRANDBOOK MRSU) */
+$brandbook-color-1: #be1b86;
+$brandbook-color-2: #2b306c;
+$brandbook-color-3: #6c3f99;
+$brandbook-color-4: #f6ef7b;
+$brandbook-color-5: #1a1f1f;
+$brandbook-color-6: #fff;
+
+/* HEADER */
+$subtitle-font-size: clamp(0.9375rem, 0.6452rem + 0.8065vw, 1.25rem);
+$logo-size: clamp(4.375rem, 2.621rem + 4.8387vw, 6.25rem);
+$logo-svg-size: clamp(3.5rem, 2.0968rem + 3.871vw, 5rem);
+$title-separator-size: 3px;
+$pulse-size: 17px;
+$large-gear-size: 175px;
+
+/* FONTS */
+$title-font: 'Sofia Sans Extra Condensed Regular', sans-serif;
+$plain-text-font: 'Oswald', sans-serif;

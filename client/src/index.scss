@@ -1,40 +1,33 @@
-// :root {
-//   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-//   line-height: 1.5;
-//   font-weight: 400;
+@use './styles/variables.scss' as vars;
+@use './styles/fonts.scss' as fonts;
 
-//   color-scheme: light dark;
-//   color: rgba(255, 255, 255, 0.87);
-//   background-color: #242424;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: vars.$plain-text-font;
+}
 
-//   font-synthesis: none;
-//   text-rendering: optimizeLegibility;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sofia Sans Extra Condensed Regular', sans-serif;
+  text-transform: uppercase;
+}
+
+:root {
+  display: flex;
+  justify-content: center;
+}
 
 body {
   margin: 0;
   display: flex;
-  // place-items: center;
-  // min-width: 320px;
-  // min-height: 100vh;
+  align-items: start;
+  min-height: 100vh;
   padding: 20px;
   margin-inline: auto;
   border: 1px solid red;
   max-inline-size: 1200px;
   min-inline-size: 430px;
+  inline-size: 100%;
+  background: linear-gradient(90deg, vars.$brandbook-color-1 0%, vars.$brandbook-color-2 100%);
 }
-
-// @media (prefers-color-scheme: light) {
-//   :root {
-//     color: #213547;
-//     background-color: #ffffff;
-//   }
-//   a:hover {
-//     color: #747bff;
-//   }
-//   button {
-//     background-color: #f9f9f9;
-//   }
-// }
