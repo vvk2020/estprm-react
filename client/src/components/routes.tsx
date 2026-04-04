@@ -3,6 +3,7 @@ import { GoalsPage } from '../pages/goals/goals-page';
 import { HomePage } from '../pages/home-page';
 import { Contacts } from './contacts/contacts';
 import { Equipment } from './equipment/equipment';
+import { Publications } from './publications';
 import { Structure } from './structure';
 import { Layout } from './ui/layout/layout';
 
@@ -32,11 +33,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/publications',
-        element: <div>Публикации</div>,
+        element: <Publications />,
       },
       {
         path: '/contacts',
-        element: <Contacts/>,
+        element: <Contacts />,
       },
       {
         path: '/login',

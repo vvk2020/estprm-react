@@ -117,7 +117,7 @@ app.get("/publications", async (req: Request, res: Response) => {
       `${publs?.certificates?.length || 0} свидетельств`,
     );
 
-    res.json(publs);
+    res.json({ ...publs, success: true });
   } catch (error) {
     console.error("❌ Ошибка получения публикаций:", error);
     res.status(500).json({
