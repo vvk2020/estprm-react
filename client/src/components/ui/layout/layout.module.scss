@@ -1,0 +1,7 @@
+@use '../../../components/../styles/variables.scss' as vars;
+
+.container {
+  display: block;
+  padding: calc(vars.$header-padding/2) vars.$header-padding vars.$header-padding;
+  text-align: start;
+}

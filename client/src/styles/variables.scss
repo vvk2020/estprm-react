@@ -7,13 +7,19 @@ $brandbook-color-5: #1a1f1f;
 $brandbook-color-6: #fff;
 
 /* HEADER */
+$header-padding: clamp(1.25rem, -0.504rem + 4.8387vw, 3.125rem);
 $subtitle-font-size: clamp(0.9375rem, 0.6452rem + 0.8065vw, 1.25rem);
 $logo-size: clamp(4.375rem, 2.621rem + 4.8387vw, 6.25rem);
 $logo-svg-size: clamp(3.5rem, 2.0968rem + 3.871vw, 5rem);
 $title-separator-size: 3px;
 $pulse-size: 17px;
 $large-gear-size: 175px;
+$top-gap: clamp(0.625rem, -0.7711rem + 5.1948vw, 3.125rem);
+$horizontal-gap: clamp(1.25rem, 0.2029rem + 3.8961vw, 3.125rem);
 
 /* FONTS */
 $title-font: 'Sofia Sans Extra Condensed Regular', sans-serif;
 $plain-text-font: 'Oswald', sans-serif;
+
+/* COMMON */
+$border-radius: 10px;

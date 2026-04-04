@@ -1,0 +1,40 @@
+@use '../../../components/../styles/variables.scss' as vars;
+
+.contacts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+
+  &Link {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-variation-settings: 'wght' 600;
+    color: vars.$brandbook-color-1;
+
+    &:hover {
+      background: linear-gradient(
+        45deg,
+        vars.$brandbook-color-1,
+        vars.$brandbook-color-2,
+        vars.$brandbook-color-3,
+        vars.$brandbook-color-4,
+        vars.$brandbook-color-1
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 400% 400%;
+      animation: gradientFlow 3s ease infinite;
+    }
+  }
+
+  &Map {
+    margin-top: 20px;
+    display: flex;
+    &Frame {
+      inline-size: 100%;
+      aspect-ratio: 1.5;
+    }
+  }
+}

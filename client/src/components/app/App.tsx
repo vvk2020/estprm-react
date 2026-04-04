@@ -1,23 +1,10 @@
 import { CssBaseline } from '@mui/material';
-import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { AppHeader } from '../app-header';
+import { RouterProvider } from 'react-router-dom';
+import { router } from '../routes';
 import './App.scss';
 
 // Тема с кастомным шрифтом
-// const theme = createTheme({
-//   typography: {
-//     fontFamily: [
-//       'Roboto', // Основной шрифт
-//       '-apple-system',
-//       'BlinkMacSystemFont',
-//       '"Segoe UI"',
-//       'Arial',
-//       'sans-serif',
-//     ].join(','),
-//   },
-// });
-
 const theme = createTheme({
   typography: {
     fontFamily: 'Sofia Sans Extra Condensed Regular, sans-serif',
@@ -37,8 +24,9 @@ function App() {
         {/* <Typography variant="h1" fontWeight={550}>
           Заголовок с нестандартным весом 550
         </Typography> */}
-        <AppHeader />
-        <Button variant="contained">Hello world</Button>
+        <RouterProvider router={router} />
+        {/* <AppHeader /> */}
+        {/* <Button variant="contained">Hello world</Button> */}
       </ThemeProvider>
     </>
   );
