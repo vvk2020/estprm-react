@@ -8,8 +8,13 @@
   font-family: vars.$plain-text-font;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Sofia Sans Extra Condensed Regular', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: vars.$title-font;
   text-transform: uppercase;
 }
 
@@ -19,10 +24,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  margin: 0;
   display: flex;
-  align-items: start;
-  min-height: 100vh;
+  justify-content: center;
+  // min-height: 100vh;
   padding: 20px;
   margin-inline: auto;
   border: 1px solid red;
@@ -30,4 +34,109 @@ body {
   min-inline-size: 430px;
   inline-size: 100%;
   background: linear-gradient(90deg, vars.$brandbook-color-1 0%, vars.$brandbook-color-2 100%);
+}
+
+// Заголовок страницы
+.title {
+  font-family: vars.$title-font;
+  text-transform: uppercase;
+  color: vars.$brandbook-color-2;
+  text-align: center;
+  font-size: 30px;
+  padding-block-end: 20px;
+}
+
+// Подзаголовок страницы
+.subtitle {
+  font-family: vars.$title-font;
+  color: vars.$brandbook-color-2;
+  font-size: 26px;
+  padding-block: 20px 10px;
+}
+
+// Обычный текст
+.plainText {
+  color: vars.$brandbook-color-5;
+  text-align: left;
+  font-size: 20px;
+}
+
+.gridColumnTitle {
+  color: vars.$brandbook-color-2;
+  font-variation-settings: 'wght' 600;
+}
+
+// Кастомный маркированный список
+.ulist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: none;
+  padding-inline-start: 0;
+  padding-block: 10px;
+
+  &Item::before {
+    content: '✓ ';
+    margin-right: 8px;
+    color: vars.$brandbook-color-2;
+  }
+}
+
+.link {
+  position: relative;
+  cursor: pointer;
+  color: vars.$brandbook-color-6;
+  background: vars.$brandbook-color-5;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 10px;
+
+  &:hover {
+    // Анимация градиентного текста
+    background: linear-gradient(
+      45deg,
+      vars.$brandbook-color-1,
+      vars.$brandbook-color-2,
+      vars.$brandbook-color-3,
+      vars.$brandbook-color-4,
+      vars.$brandbook-color-1
+    );
+
+    background-clip: text;
+    color: transparent;
+    background-size: 400% 400%;
+    animation: gradient-flow 3s ease infinite;
+  }
+
+  &Active {
+    // Анимация градиентного текста
+    background: linear-gradient(
+      45deg,
+      vars.$brandbook-color-1,
+      vars.$brandbook-color-2,
+      vars.$brandbook-color-3,
+      vars.$brandbook-color-4,
+      vars.$brandbook-color-1
+    );
+
+    color: transparent;
+    background-size: 400% 400%;
+    animation: gradient-flow 3s ease infinite;
+    background-clip: text;
+  }
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }

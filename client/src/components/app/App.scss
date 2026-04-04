@@ -1,6 +1,10 @@
+@use '../../styles/variables.scss' as vars;
+
 #root {
   inline-size: 100%;
   margin: 0 auto;
   text-align: center;
-  border: 1px solid green;
+  background: vars.$brandbook-color-6;
+  border-radius: vars.$border-radius;
+  overflow: hidden;
 }

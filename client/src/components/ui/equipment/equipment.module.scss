@@ -1,0 +1,12 @@
+.equipment {
+  &Image {
+    width: 100%;
+    object-fit: cover;
+
+    &Container {
+      display: flex;
+      padding-block: 25px;
+      justify-content: center;
+    }
+  }
+}
