@@ -1,43 +1,119 @@
-import type { FC } from 'react';
+import Paper from '@mui/material/Paper';
+import {
+  DataGrid,
+  type GridColDef,
+  type GridRowParams,
+  type GridRowSelectionModel,
+} from '@mui/x-data-grid';
+import { ruRU } from '@mui/x-data-grid/locales';
+import { useState, type FC } from 'react';
+import { selectArticles } from '../../../services/publications/slices';
+import { useSelector } from '../../../services/store';
+
+const columns: GridColDef[] = [
+  { field: 'id', headerName: 'ID' },
+  { field: 'year', headerName: 'Год', width: 60 },
+  { field: 'authors', headerName: 'Авторы', width: 160 },
+  { field: 'name', headerName: 'Название', flex: 1 },
+  // {
+  //   field: 'fullName',
+  //   headerName: 'ФИО',
+  //   description: 'This column has a value getter and is not sortable.',
+  //   sortable: false,
+  //   width: 160,
+  //   valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
+  // },
+];
+
+export default function DataTable() {
+  const articles = useSelector(selectArticles);
+
+  const rows = articles.map(a => {
+    return {
+      id: a.id,
+      year: a.year.toString(),
+      authors: a.authors,
+      name: a.name,
+    };
+  });
+
+  const handleRowClick = (params: GridRowParams) => {
+    console.log('Clicked row:', params.row);
+    console.log('Row ID:', params.id);
+    console.log('Row data:', params.row);
+  };
+
+  const handleRowDoubleClick = (params: GridRowParams) => {
+    console.log('Double clicked row:', params.row);
+    console.log('Row ID:', params.id);
+    console.log('Row data:', params.row);
+  };
+
+  const fontSettings = {
+    fontSize: '1.25rem !important',
+    fontFamily: 'var(--plain-text-font)',
+  };
+
+  console.log('ROWS', rows);
+  // Состояние для хранения ID выделенной строки
+  const [selectedRowId, setSelectedRowId] = useState<GridRowSelectionModel>();
+
+  const paginationModel = { page: 1, pageSize: 10 };
+
+  return (
+    <Paper sx={{ height: '100%', width: '100%' }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        getRowHeight={() => 'auto'}
+        initialState={{
+          pagination: { paginationModel },
+          columns: {
+            columnVisibilityModel: {
+              id: false,
+            },
+          },
+        }}
+        pageSizeOptions={[5, 10, 20]}
+        checkboxSelection
+        // Контролируемая модель выделения
+        rowSelectionModel={selectedRowId}
+        // Событие изменения модели (будет вызвано при клике, но мы его переопределяем)
+        onRowSelectionModelChange={(newModel: GridRowSelectionModel) => {
+          // Необязательно: можно добавить логику, если выделение изменилось другим способом
+          setSelectedRowId(newModel);
+        }}
+        localeText={ruRU.components.MuiDataGrid.defaultProps.localeText}
+        onRowClick={handleRowClick}
+        onRowDoubleClick={handleRowDoubleClick}
+        // Отключаем выделение при двойном клике
+        disableRowSelectionOnClick={true} // Оставляем выделение при одиночном клике
+        sx={{
+          border: 0,
+          //! Применяем стили напрямую с повышением специфичности
+          // Для текста лейбла "Rows per page:"
+          '& .MuiTablePagination-selectLabel': fontSettings,
+          // Для отображения количества строк (например: "1-5 of 10")
+          '& .MuiTablePagination-displayedRows': fontSettings,
+          // Для селекта (выпадающий список)
+          '& .MuiTablePagination-root .MuiSelect-select': fontSettings,
+          // Для элемента с текстом внутри селекта
+          '& .MuiInputBase-root': fontSettings,
+          // Более специфичный селектор для MUI X DataGrid
+          '& .MuiDataGrid-footerContainer .MuiSelect-select': fontSettings,
+          // Для всех элементов пагинации
+          '& .MuiTablePagination-root': fontSettings,
+        }}
+      />
+    </Paper>
+  );
+}
 
 export const PublicationsUI: FC = () => {
   return (
     <>
       <h2 className="title">Публикации</h2>
-
-      <section className="structure__intro">
-        <div className="plainText">
-          Cтруктура Лаборатории утверждена 30.11.2020 года приказом № 01/195 о преобразовании
-          лаборатории «Наномембранное разделение и концентрирование жидких сред» Института механики
-          и энергетики в учебно-научно-производственную лабораторию «Энергоресурсосберегающие
-          технологии переработки сырья и материалов» кафедры механизации переработки
-          сельскохозяйственной продукции института механики и энергетики ФГБОУ ВО «МГУ им. Н.П.
-          Огарёва». Учитывая наличие нескольких существенно различающих направлений исследований и
-          видов выполняемых работ, в ее структуре выделено 5 секторов:
-        </div>
-        <ul className="ulist">
-          <li className="plainText ulistItem">
-            процессов и аппаратов перерабатывающих производств
-          </li>
-          <li className="plainText ulistItem">реологических и физико-механических испытаний</li>
-          <li className="plainText ulistItem">
-            процессов экструзии, литья под давлением и прессования
-          </li>
-          <li className="plainText ulistItem">баромембранных процессов</li>
-          <li className="plainText ulistItem">процессов измельчения и диспергирования</li>
-        </ul>
-        <div className="plainText">
-          В каждом секторе выполняются как научные исследования, так и учебные виды работ
-          (практические занятия и лабораторные работы с бакалаврами и магистрами агроинженерного,
-          биотехнологического, химико-технологического и других направлений подготовки). В секторах
-          баромембранных процессов, процессов измельчения и диспергирования и процессов экструзии,
-          литья под давлением и прессования также осуществляется производственная деятельность
-          (мелкосерийное и штучное производство полимерных деталей и образцов композиций, опытных
-          партий продуктов мембранных технологий разделения и др.) по заказам предприятий реального
-          сектора экономики. Ниже представлен основной кадровый состав Лабортории с учетом ее
-          структуры.
-        </div>
-      </section>
+      <DataTable />
     </>
   );
 };
