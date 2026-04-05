@@ -43,9 +43,10 @@ export const publicationsSlice = createSlice({
       });
   },
   selectors: {
-    // /** Селектор всех ингредиентов */
-    // selectIngredients: (state: TIngredientsState) => state.data,
-    // /** Селектор статуса загрузки ингредиентов */
+    /** СЕЛЕКТОР СТАТЕЙ */
+    selectArticles: (state: IPublications) => state.articles,
+
+    /** Селектор статуса загрузки ингредиентов */
     // selectIngredientsRequestState: (state: TIngredientsState) =>
     //   state.isRequested,
     // /** Селектор ингредиента по его id */
@@ -59,3 +60,7 @@ export const publicationsSlice = createSlice({
     //   }
   },
 });
+
+export const { selectArticles } = publicationsSlice.selectors;
+// export const { removeSkillFromStore } = publicationsSlice.actions;
+export default publicationsSlice.reducer;

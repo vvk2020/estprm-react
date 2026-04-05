@@ -1,5 +1,6 @@
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import type { } from '@mui/x-data-grid/themeAugmentation';
 import { RouterProvider } from 'react-router-dom';
 import { router } from '../routes';
 import './App.scss';
@@ -12,6 +13,35 @@ const theme = createTheme({
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,
+  },
+
+  components: {
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          fontSize: '18px', //'0.875rem',
+          fontFamily: 'Arial, sans-serif',
+
+
+          '& .MuiTablePagination-root .MuiTablePagination-selectLabel': {
+            fontSize: '1.25rem !important',
+          },
+          '& .MuiTablePagination-root .MuiTablePagination-displayedRows': {
+            fontSize: '1.25rem !important',
+          },
+          '& .MuiTablePagination-root .MuiInputBase-root': {
+            fontSize: '1.25rem !important',
+          },
+        },
+        columnHeaderTitle: {
+          fontSize: '20px', //'1rem',
+          fontWeight: 'bold',
+        },
+        cell: {
+          fontSize: '20px', //'0.875rem',
+        },
+      },
+    },
   },
 });
 
